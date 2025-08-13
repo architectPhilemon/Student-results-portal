@@ -35,7 +35,7 @@ if (!fs.existsSync(uploadsDir)) {
 // Socket.io setup
 const io = socketIo(server, {
   cors: {
-    origin: process.env.FRONTEND_URL || "http://localhost:5173",
+    origin: process.env.FRONTEND_URL || "https://singular-bonbon-6fbee9.netlify.app/",
     methods: ["GET", "POST"]
   }
 });
@@ -72,7 +72,7 @@ app.use(limiter);
 
 // CORS configuration
 app.use(cors({
-  origin: process.env.FRONTEND_URL || "http://localhost:5173",
+  origin: process.env.FRONTEND_URL || "https://singular-bonbon-6fbee9.netlify.app/",
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With']
@@ -200,7 +200,7 @@ server.listen(PORT, () => {
 📍 Port: ${PORT}
 🌍 Environment: ${process.env.NODE_ENV || 'development'}
 📊 Database: MongoDB Atlas
-🔗 Frontend URL: ${process.env.FRONTEND_URL || 'http://localhost:5173'}
+🔗 Frontend URL: ${process.env.FRONTEND_URL || 'https://singular-bonbon-6fbee9.netlify.app/'}
 ⏰ Started at: ${new Date().toISOString()}
 🔑 JWT Secret: ${process.env.JWT_SECRET ? 'Configured' : 'Missing'}
   `);
