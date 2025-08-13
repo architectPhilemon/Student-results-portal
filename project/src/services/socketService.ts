@@ -9,7 +9,7 @@ class SocketService {
       this.disconnect();
     }
 
-    const serverUrl = import.meta.env.VITE_API_URL?.replace('/api', '') || 'http://localhost:5000';
+    const serverUrl = import.meta.env.VITE_API_URL?.replace('/api', '') || 'https://student-results-portal-h35s.onrender.com';
     
     this.socket = io(serverUrl, {
       auth: {
