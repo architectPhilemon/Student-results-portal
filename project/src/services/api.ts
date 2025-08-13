@@ -1,7 +1,7 @@
 import axios, { AxiosInstance, AxiosResponse } from 'axios';
 import toast from 'react-hot-toast';
 
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://student-results-portal-h35s.onrender.com/api';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'https://student-results-portal-h35s.onrender.com';
 
 class ApiService {
   private api: AxiosInstance;
