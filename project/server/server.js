@@ -35,7 +35,7 @@ if (!fs.existsSync(uploadsDir)) {
 // Socket.io setup
 const io = socketIo(server, {
   cors: {
-    origin: process.env.FRONTEND_URL || "https://student-results-portal-2.onrender.com/",
+    origin: process.env.FRONTEND_URL || "https://student-results-portal-2.onrender.com",
     methods: ["GET", "POST"]
   }
 });
