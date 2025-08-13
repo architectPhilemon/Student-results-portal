@@ -10,48 +10,48 @@ interface AuthResponse {
 
 class AuthService {
   async login(credentials: LoginData): Promise<AuthResponse> {
-    return await apiService.post<AuthResponse>('/auth/login', credentials);
+    return await apiService.post<AuthResponse>('api/auth/login', credentials);
   }
 
   async register(userData: RegisterData): Promise<AuthResponse> {
-    return await apiService.post<AuthResponse>('/auth/register', userData);
+    return await apiService.post<AuthResponse>('api/auth/register', userData);
   }
 
   async getCurrentUser(): Promise<User> {
-    const response = await apiService.get<{ success: boolean; user: User }>('/auth/me');
+    const response = await apiService.get<{ success: boolean; user: User }>('api/auth/me');
     return response.user;
   }
 
   async updateProfile(userData: Partial<User>): Promise<User> {
-    const response = await apiService.put<{ success: boolean; user: User }>('/auth/profile', userData);
+    const response = await apiService.put<{ success: boolean; user: User }>('api/auth/profile', userData);
     return response.user;
   }
 
   async changePassword(currentPassword: string, newPassword: string): Promise<void> {
-    await apiService.put('/auth/change-password', {
+    await apiService.put('api/auth/change-password', {
       currentPassword,
       newPassword,
     });
   }
 
   async logout(): Promise<void> {
-    await apiService.post('/auth/logout');
+    await apiService.post('api/auth/logout');
   }
 
   async forgotPassword(email: string): Promise<void> {
-    await apiService.post('/auth/forgot-password', { email });
+    await apiService.post('api/auth/forgot-password', { email });
   }
 
   async resetPassword(token: string, newPassword: string): Promise<void> {
-    await apiService.post('/auth/reset-password', { token, newPassword });
+    await apiService.post('api/auth/reset-password', { token, newPassword });
   }
 
   async verifyEmail(token: string): Promise<void> {
-    await apiService.post('/auth/verify-email', { token });
+    await apiService.post('api/auth/verify-email', { token });
   }
 
   async resendVerificationEmail(): Promise<void> {
-    await apiService.post('/auth/resend-verification');
+    await apiService.post('api/auth/resend-verification');
   }
 }
 
